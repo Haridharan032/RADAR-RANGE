@@ -91,6 +91,8 @@ plot(Pm_vals, Rmax_Pm, 'b', 'LineWidth', 2);
 <img width="1694" height="987" alt="image" src="https://github.com/user-attachments/assets/a6dc72aa-b056-437b-a821-579ed3fd9383" />
 
 ## Manual Calculation
+![WhatsApp Image 2025-11-16 at 18 44 06_755d2dac](https://github.com/user-attachments/assets/10d14340-399d-435d-9cc1-5e076f1a8b38)
+
 
 
 
