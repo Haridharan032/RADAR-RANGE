@@ -55,45 +55,35 @@ It is expressed as:
 
 ##  Code 
 ```scilab
-lambda = 0.05;      
-sigma  = 2;         
+Pt = 1000;
+G = 1000;
+sigma = 1;
+Ae = 10;
 
-Pt_vals = 0.5:0.5:20;   
-Gt_const = 25;          
-Pm_const = 1e-14;       
-
-Rmax_Pt = ((Pt_vals .* Gt_const.^2 .* lambda.^2 .* sigma) ./ ((4*%pi)^3 .* Pm_const)).^(1/4);
-
-Gt_vals = 5:2:100;      
-Pt_const = 2;           
-Pm_const = 1e-14;       
-
-Rmax_Gt = ((Pt_const .* Gt_vals.^2 .* lambda.^2 .* sigma) ./ ((4*%pi)^3 .* Pm_const)).^(1/4);
-
-Pm_vals = logspace(-14, -9, 50);  
-Pt_const = 2;          
-Gt_const = 25;         
-
-Rmax_Pm = ((Pt_const .* Gt_const.^2 .* lambda.^2 .* sigma) ./ ((4*%pi)^3 .* Pm_vals)).^(1/4);
-
+Smin = logspace(-12, -6, 100);
+Rmax = ((Pt * G * sigma * Ae) ./ (16 * %pi^2 .* Smin)).^(1/4);
 subplot(3,1,1);
-plot(Pt_vals, Rmax_Pt, 'r', 'LineWidth', 2);
+plot(Smin, Rmax);
 
+Ppeak = linspace(100, 10000, 100);
+Rmax2 = ((Ppeak * G * sigma * Ae) ./ (16 * %pi^2 * 1e-10)).^(1/4);
 subplot(3,1,2);
-plot(Gt_vals, Rmax_Gt, 'g', 'LineWidth', 2);
+plot(Ppeak, Rmax2);
 
+Gt = linspace(100, 2000, 100);
+Rmax3 = ((Pt * Gt * sigma * Ae) ./ (16 * %pi^2 * 1e-10)).^(1/4);
 subplot(3,1,3);
-plot(Pm_vals, Rmax_Pm, 'b', 'LineWidth', 2);
+plot(Gt, Rmax3);
+
 ```
 
 ## Output
 
-<img width="1694" height="987" alt="image" src="https://github.com/user-attachments/assets/a6dc72aa-b056-437b-a821-579ed3fd9383" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6a765365-cc0e-4144-8357-dbcd767f0606" />
 
 ## Manual Calculation
 
-![20251128_200123](https://github.com/user-attachments/assets/4549aef1-acc4-46c7-a4d8-69172c35c533)
-
+![WhatsApp Image 2025-12-04 at 15 32 12_95f5adc0](https://github.com/user-attachments/assets/7919c385-534e-4b31-886e-a95811622156)
 
 
 ## Result
